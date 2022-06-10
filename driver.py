@@ -62,6 +62,7 @@ def goto_confirm_url(driver, confirm_ticket_url):
     # (session="1244164329c3e2743132313082fd0416", element="36634b86-15bf-45a2-90d8-db69c3e60f6e")>
     # print(f'点击按钮的文字', payBtn.text)  # 已售罄/ 立即支付 ¥160.00
     if '立即支付' in payBtn.text:
+        select_user(driver)
         return payBtn
     else:
         # 不断刷新
@@ -70,7 +71,7 @@ def goto_confirm_url(driver, confirm_ticket_url):
 
 
 def confirm_ticket(payBtn, driver):
-    select_user(driver)
+
     needEmail = True
     b = payBtn
     i = 0
